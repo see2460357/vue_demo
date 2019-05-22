@@ -1,0 +1,307 @@
+
+// Mixin
+  // ---------->
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+@mixin poa($t,$l:$t)
+  top: $t
+  left: $l
+  position: absolute
+  transform: translate(-50%,-50%)
+// Color
+$colorRed: #c5333f
+$colorG: #333
+// Font
+h3
+  color: #fff
+  font-size: 22px
+  font-weight: 900
+  font-family: 微軟雅黑
+  text-align: center
+  text-shadow: 0em 0.1em 0.2em rgba(#fff, .5)
+  position: relative
+  z-index: 1
+  &:before
+    +size(50px, 2px)
+    +poa(calc(100% + 10px), 50%)
+    background: $colorRed
+    content: ''
+.proType
+  font-size: 14px
+  font-weight: 900
+  margin: 15px 0
+  font-family: 微軟雅黑
+  color: #eee
+.textType
+  width: 600px
+  color: #eee
+  font-size: 13px
+  font-weight: 900
+  line-height: 1.8
+  margin: 30px auto
+.text
+  color: #eee
+  font-size: 14px
+  line-height: 2
+// Theme
+a:hover
+  text-decoration: none
+.wrap
+  width: 1160px
+  margin: 0 auto
+  box-sizing: border-box
+  position: relative
+.clearfix
+  clear: both
+.title
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+.Home_oh
+  overflow: hidden
+  height: 100vh
+.clickBtn
+  border: solid 1px rgba(128, 128, 128, 0.3)
+  border-radius: 20px
+  padding: 3px 10px
+  display: inline-block
+  background: #fff
+  color: #888
+  font-size: 13px
+  margin-right: 5px
+  transition: .5s
+  cursor: pointer
+  &:hover
+    background: $colorRed
+    color: #fff
+.more_btn
+  +size(200px, 40px)
+  position: relative
+  border: 2px solid #cfdae2
+  color: #cfdae2 !important
+  background: url(http://www.flower-ldh.jp/resources/top/img/bg_more.png) no-repeat right center #000
+  margin: 0 auto
+  display: block
+  line-height: 40px
+  text-align: center
+  letter-spacing: 2px
+  border-radius: 20px
+  line-height: 2.4
+  transition: .3s
+  z-index: 1
+  &:hover
+    opacity: .7
+// Global
+*
+  // border: solid 1px #888 !important
+  box-sizing: border-box
+#app
+  font-family: Microsoft JhengHei
+// Navbar
+.Navbar
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4)
+  border-top: solid 4px $colorRed
+  padding: 10px 0px
+  width: 100%
+  line-height: 2.3
+  z-index: 9999
+  background: #fff
+  .loginWrap
+    +poa(50%)
+    +size(100%, 100vh)
+    background: rgba(#000, .8)
+    z-index: 99999
+    .loginBox
+      +poa(50%)
+      +size(350px, 290px)
+      background: #fff
+      border-radius: 10px
+      box-sizing: border-box
+      padding: 20px
+      .loginTitle
+        border-bottom: 1px solid rgba(#000, .1)
+        h3
+          color: $colorRed
+          span
+            color: #555555
+      .loginContent
+        padding: 20px 0
+        border-bottom: 1px solid rgba(#000, .1)
+        form
+          div
+            position: relative
+            margin-bottom: 5px
+            input
+              width: 100%
+              border-radius: 5px
+              border: solid 1px rgba(#000, .3)
+              box-sizing: border-box
+              font-weight: 900
+              padding-left: 40px
+            i
+              +poa(50%, 20px)
+              color: #888
+              font-size: 14px
+          button
+            border: none
+            cursor: pointer
+            margin-top: 20px
+            width: 100%
+            font-weight: 900
+            font-size: 18px
+            background: $colorRed
+            color: #fff
+      .close
+        cursor: pointer
+        i
+          font-size: 18px
+          &:hover
+            color: #333
+  h1
+    margin: 10px 30px
+    float: left
+    margin-right: 20px
+    +size(115px, 30px)
+    a
+      font-size: 30px
+      display: block
+      color: $colorRed
+      font-weight: 900
+  .menu
+    margin: 10px 0
+    float: left
+    a
+      padding: 0 20px
+      color: $colorG
+      font-weight: 900
+      &:hover
+        color: $colorRed
+        text-decoration: none
+    a.router-link-exact-active
+      background: #c31919
+      color: #fff
+      padding: 10px 20px
+      &:hover
+        color: #fff
+  .user
+    margin: 10px 0
+    float: right
+    cursor: pointer
+    a
+      padding: 0 30px
+      position: relative
+      i
+        +size(25px)
+        +poa(50%, 10px)
+        background: $colorRed
+        border-radius: 50%
+        padding: 5px
+        color: #fff
+        text-align: center
+      &:hover
+        color: $colorRed
+.products
+  padding: 50px 0
+  .title
+    h3
+      float: left
+    .productMenu
+      float: right
+      position: relative
+      a
+        cursor: pointer
+        display: inline-block
+        line-height: 2.2
+        font-size: 13px
+        color: #777
+        padding: 0 20px
+        border-left: 1px solid rgba(0, 0, 0, 0.3)
+        font-weight: 900
+        &:hover
+          color: $colorRed
+          text-decoration: none
+      .active
+        background: $colorRed
+        color: #fff
+        border-left: 1px solid $colorRed
+        &:hover
+          color: #fff
+      form
+        +poa(50%, -120px)
+        input
+          outline: none
+          width: 180px
+          padding: 0 10px
+          border-radius: 5px
+          border: solid 1px rgba(#888, .5)
+          color: #888
+        i
+          cursor: pointer
+          +poa(50%, 90%)
+          color: #888
+          &:hover
+            color: $colorRed
+  .content
+    margin: 30px 0
+    .post
+      float: left
+      width: 30%
+      box-sizing: border-box
+      margin-right: 56px
+      margin-bottom: 40px
+      &:nth-child(3n)
+        margin-right: 0 
+      .img
+        +size(100%, 230px)
+        text-align: center
+        background: rgba(#eee, .5)
+        border-radius: 5px
+        overflow: hidden
+        img
+          max-width: 180px
+          min-width: 160px
+          width: 50%
+      .text
+        min-height: 120px
+        max-height: 120px
+        overflow: hidden
+        border-bottom: 1px solid rgba(128, 128, 128, 0.3)
+        margin-bottom: 10px
+        p
+          color: #888
+          font-size: 13px
+          line-height: 1.8
+footer
+  background: #000
+  padding: 100px 0 10px
+  position: relative
+  .page
+    +size(80px)
+    +poa(0px, 50%)
+    content: ''
+    background: url(../assets/Images/c.png)
+    background-position: center center
+    background-size: cover
+    background-repeat: no-repeat
+  .cond
+    padding: 20px 0
+    margin: 0 auto
+    +size(60px)
+    img
+      width: 100%
+  .tw
+    margin: 30px 0
+    display: inline-block
+    position: relative
+    padding-left: 15px
+    color: white
+    i
+      +poa(50%, 0px)
+  p
+    margin: 0
+    color: #fff
+    opacity: .3
+    font-size: 12px

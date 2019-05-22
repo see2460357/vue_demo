@@ -1,0 +1,379 @@
+
+// Mixin
+  // ---------->
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+@mixin poa($t,$l:$t)
+  top: $t
+  left: $l
+  position: absolute
+  transform: translate(-50%,-50%)
+// Color
+  // ---------->
+$colorG: #DCDCDC
+$colorB: #1F2023
+$colorO: #FC8962
+.colorO
+  color: $colorO
+.colorB
+  color: $colorB
+.color8d
+  color: #8d8d8d
+// Font
+  // ---------->
+h3
+  display: inline-block
+  color: #262626
+  letter-spacing: 1px
+  position: relative
+.fw900
+  font-weight: 900
+.fz20
+  font-size: 20px
+.fz16
+  font-size: 16px
+.fz14
+  font-size: 14px
+.fz13
+  font-size: 13px
+.lineh18
+  line-height: 1.8
+// Theme
+  // ---------->
+input
+  outline: none
+  border: none
+  padding: 0 20px
+.wrap
+  width: 1130px
+  margin: 0 auto
+  box-sizing: border-box
+  position: relative
+.clearfix
+  clear: both
+.dsblock
+  display: block
+.box
+  box-sizing: border-box
+.floatl
+  float: left
+.floatr
+  float: right
+.cursor
+  cursor: pointer
+.mb20
+  margin-bottom: 20px
+.mt10
+  margin-top: 10px
+.mb10
+  margin-bottom: 10px
+.pt80
+  padding-top: 80px
+.p020
+  padding: 20px
+.p10
+  padding: 10px 0
+.pt20
+  padding-top: 20px
+.pt5
+  padding-top: 5px
+.width50
+  width: 50%
+a
+  color: #8d8d8d
+  &:hover
+    text-decoration: none
+.btn
+  padding: 3px 20px
+  background: #eee
+  &:hover
+    background: $colorB
+    color: #fff
+.Home_oh
+  overflow: hidden
+  height: 100vh
+// Global
+  // ---------->
+#app
+  font-family: Microsoft JhengHei
+.Products
+  .categories
+    float: left
+    width: 20%
+    .menu
+      ul
+        li
+          line-height: 2.2
+          padding-left: 20px
+          a
+            text-align: left
+          .active
+            color: $colorO
+  .productMenu
+    float: left
+    width: 80%
+    .search
+      float: right
+      position: relative
+      margin-bottom: 50px
+      input
+        padding: 0 10px
+        outline: none
+      i
+        +poa(50%, 93%)
+    .postbox
+      .post
+        width: 25%
+        cursor: pointer
+        margin-bottom: 30px
+        &:hover .price
+          color: $colorO
+        .Img
+          margin: 0 auto
+          .img
+            width: 150px
+            margin: 0 auto
+            img
+              width: 100%
+        .Text
+          text-align: center
+// Product Page
+  // --------------->
+.bannerProduct
+  .productCategories
+    width: 20%
+    border-top: 1px solid #eee
+    .cart
+      h3
+        span
+          +poa(45%, 190%)
+          font-style: normal
+      i
+        +poa(40%, calc(100% + 15px))
+      span
+        font-style: italic
+        letter-spacing: 1px
+      ul
+        li
+          position: relative
+          .Img
+            width: 50px
+            img
+              width: 100%
+          .text
+            .delete
+              i
+                +poa(50%, 70%)
+    .categories
+      a
+        display: block
+        transition: .3s
+        font-size: 13px
+        padding: 10px 0
+        &:hover
+          color: $colorO
+          text-decoration: none
+      .active
+        color: $colorO
+  .productContent
+    width: 80%
+    border-top: 1px solid #eee
+    border-left: 1px solid #eee
+    .contentTitle
+      .search
+        position: relative
+        &:before
+          background: #eee
+          content: ''
+          +poa(90%, 55%)
+          +size(65%, 1px)
+        i
+          +poa(50%, 100%)
+    .contentProduct
+      .post
+        +size(31%, 350px)
+        overflow: hidden
+        margin-right: 20px
+        margin-bottom: 20px
+        transition: .3s
+        &:hover
+          box-shadow: 0 0 20px 3px #eee
+          .postBox 
+            .text
+              +poa(95%, 50%)
+            .Img
+              &:before
+                opacity: 1
+              .front_text
+                display: block
+        .postBox
+          position: relative
+          .Img
+            +size(100%, 300px)
+            min-width: 270px
+            position: relative
+            text-align: center
+            transition: .3s
+            &:before
+              +size(100%)
+              +poa(50%)
+              opacity: 0
+              transition: .3s
+              background: rgba($colorO, .6)
+              content: ''
+            .front_text
+              display: none
+              +poa(40%, 50%)
+              div
+                border: 2px solid #fff
+                text-align: center
+                padding: 10px 10px
+                opacity: 1
+                margin-bottom: 15px
+                transition: .3s
+                &:hover
+                  background: #fff
+                  color: $colorO
+            img
+                width: 80%
+          .text
+            +poa(calc(120% + 5px), 50%)
+            background: #fff
+            width: 100%
+            height: 130px
+            padding: 20px 10px
+            transition: .3s
+.productdetail
+  .wrap
+    .detailLeft
+      .Img
+        +size(400px, 100%)
+        margin: 0 auto
+        .img
+          img
+            transform: translateX(50px)
+            +size(80%)
+    .detailRight
+      .type
+        div
+          &:after
+            +poa(30%, calc(100% + 10px))
+            +size(1.5px, 50%)
+            content: ''
+            background: #ddd
+            transform: rotate(20deg)
+          font-size: 12px
+          display: inline-block
+          letter-spacing: 1px
+          margin-right: 20px
+          position: relative
+        div:first-child
+        div:last-child
+          color: #3D3D3D
+          &:after
+            display: none
+      .select
+        div
+          display: inline-block
+          select
+            +size(130px,30px)
+            margin-right: 10px
+            outline: none
+            border: solid 1px #ddd
+            border-radius: 3px
+            padding: 0 5px
+            cursor: pointer
+      .addbtn
+        button
+          +size(130px,35px)
+          cursor: pointer
+          border: none
+          border-radius: 3px
+          background: #3d3d3d
+          transition: .3s
+          outline: none
+          &:hover
+            background: #eee
+            color: #3d3d3d
+// cart
+.CartShop
+  .content
+    .productType
+      width: 100%
+      border-bottom: solid 1px #eee
+      ul
+        li
+          display: inline-block
+        .title
+          width: 50%
+        .delete
+          text-align: center
+          width: 15%
+        .priceS
+          width: 10%
+          text-align: center
+        .quantity
+          text-align: center
+          width: 15%
+        .price
+          text-align: right
+          width: 10%
+    .productContent
+      #productCart_num
+        font-style: italic
+      ul
+        border-bottom: 1px solid #eee
+        li
+          display: inline-block
+          position: relative
+        .title
+          width: 50%
+          .img
+            width: 30%
+            +size(80px)
+            border-radius: 3px
+            overflow: hidden
+            img
+                transform: translateX(10px)
+                width: 80%
+          .text
+            width: 70%
+        .delete
+          width: 15%
+          text-align: center
+          vertical-align: top
+          i
+            color: #c31919
+        .priceS
+          width: 10%
+          text-align: center
+          vertical-align: top
+        .quantity
+          text-align: center
+          vertical-align: top
+          width: 15%
+          select
+            border-radius: 5px
+            outline: none
+        .price
+          text-align: right
+          vertical-align: top
+          width: 10%
+    .deta
+      .cartMes
+        width: 65%
+        ul
+          li
+            line-height: 1.6
+            .id
+              width: 25px
+            span
+              width: 80%
+      .cartItem
+        width: 35%
+        text-align: right
